@@ -1,0 +1,347 @@
+/* tonebase user reg stylesheet */
+* {
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+  text-rendering: optimizeLegibility;
+}
+
+.hidden {
+  display: none !important;
+} .bold {
+  font-weight: 700 !important;
+} .normal {
+  font-weight: 400 !important;
+} .light {
+  font-weight: 300 !important;
+} .italic {
+  font-style: italic !important;
+} .prim {
+  font-family: 'Rubik', sans-serif !important;
+} .sec {
+  font-family: 'Roboto', sans-serif !important;
+} .main {
+  font-weight: bold !important;
+} .sub {
+  font-weight: normal !important;
+} .block {
+  display: block !important;
+} .inline-block {
+  display: inline-block !important;
+} .inline {
+  display: inline !important;
+}
+
+.bg-center {
+  background-position: center center;
+} .bg-left {
+  background-position: left center;
+} .bg-right {
+  background-position: right center;
+} .bg-fixed {
+  background-attachment: fixed;
+} .bg-scroll {
+  background-attachment: scroll;
+} .bg-cover {
+  background-size: cover;
+} .bg-contain {
+  background-size: contain;
+} .bg-no-repeat {
+  background-repeat: no-repeat;
+}
+
+.dark-bg {
+  background: #121314;
+} .dark-light {
+  background: #1c1c1f;
+} .light-bg {
+  background: #e14f3d;
+} .dark-grad {
+  background: #121314; /* Old Browsers */ /*Safari 5.1-6*/ /*Opera 11.1-12*/ /*Fx 3.6-15*/
+  background: -webkit-gradient(linear, left top, right top, from(#1c1c1f), to(#121314));
+  background: linear-gradient(to right, #1c1c1f, #121314); /*Standard*/
+} .light-grad {
+  background: #d53a27; /* Old Browsers */ /*Safari 5.1-6*/ /*Opera 11.1-12*/ /*Fx 3.6-15*/
+  background: -webkit-gradient(linear, left top, right top, from(#d53a27), to(#e14f3d));
+  background: linear-gradient(to right, #d53a27, #e14f3d); /*Standard*/
+} .white-bg {
+  background: #fff;
+} .white {
+  color: #fff;
+} .dark {
+  color: #333;
+}
+
+// Replicate some bootstrap classes
+.row {
+  width: 100%;
+} .row:before, .row:after {
+  content: '';
+} .col-xs-12 {
+  width: 100%;
+  float: left;
+}
+
+/* Code site for min-width: 0px first */
+html {
+  width: 100%;
+    overflow-y: scroll;
+    height: 100%;
+    margin: 0px auto;
+    padding: 0;
+}
+body {
+  height: 100%;
+  min-height: 100%;
+  padding: 0;
+  font-size: 14px;
+  font-family: 'Rubik', 'Roboto', Arial, sans-serif !important;
+  background-color: #000;
+}
+div#wrapper {
+  height: auto !important;
+  min-height: 100%;
+  height: 100%;
+  position: relative;
+  overflow: hidden;
+  background-image: url(../images/userReg/background.jpg);
+  padding: 100px 0;
+  background-color: #121314;
+  -webkit-transition: all 300ms ease;
+  transition: padding 500ms ease;
+  transition: height 1000ms ease;
+} div#wrapper.startReg {
+  padding: 60px 0;
+}
+
+#page-content {
+  width: 100%;
+  min-height: 100%;
+  padding-bottom: 60px;
+  transition: padding 1000ms ease;
+}
+header {
+  width: 100%;
+}
+footer {
+  width: 100%;
+  position: absolute;
+  bottom: 0;
+  left: 0;
+}
+
+/* Logo Text Styling */
+.logo-text-wrapper {
+  max-width: 95%;
+  margin: 0 auto;
+  text-align: center;
+} .logo-text-wrapper>div {
+  display: block;
+} .logo-text-wrapper .logo {
+  max-width: 100px;
+  height: 100px;
+  margin: 0 auto;
+  border-radius: 50%;
+  overflow: hidden;
+} .logo-text-wrapper .logo img {
+  max-width: 100%;
+  max-height: 100%;
+} .logo-text-wrapper .logo-text {
+  margin-top: 30px;
+  font-size: 3.6em;
+} .logo-text-wrapper .logo-sub-text {
+  margin-top: 24px;
+  font-size: 1.3em;
+  line-height: 24px;
+}
+
+/* Form Styling && Semantic Overrides */
+.form-wrapper {
+  margin: 0px auto;
+  max-width: 95%;
+  margin-top: 25px;
+} .form-wrapper.shiftedUp {
+  margin-top: 10px;
+}.ui.form .field {
+  margin-bottom: 6px;
+} .ui.form .form-button {
+  margin-top: 9px;
+} .ui.form .form-item:hover,.ui.form .form-item:focus, .ui.form .form-item:active {
+  border-color: #e14f3d !important;
+} .form-item, .form-dropdown, .ui.form .field>.selection.dropdown {
+  width: 100%;
+  height: 48px;
+  font-size: 1em !important;
+  border-radius: 60px !important;
+  border-color: rgba(141,47,34, 0.6) !important;
+  border-width: 3px !important;
+} .form-dropdown, .ui.form .field>.selection.dropdown {
+  min-height: 48px !important;
+  height: auto !important;
+} a.form-button {
+  display: block;
+  background-color: #e14f3d !important;
+  color: #fff !important;
+  -webkit-transition: all 150ms ease;
+  transition: all 150ms ease;
+  padding-top: 17px !important;
+} a.form-button:hover {
+  background-color: #d53a27 !important;
+  -webkit-transition: all 150ms ease;
+  transition: all 150ms ease;
+} a.form-button.shell {
+  background-color: transparent !important;
+  border: 2px solid #e14f3d !important;
+  color: #e14f3d !important;
+} a.form-button.altButton {
+  position: absolute;
+  top: 20px;
+  right: 15px;
+  padding-top: 12px !important;
+  width: 100px;
+  border-radius: 60px;
+} .ui.form .field .prompt.label {
+  font-weight: 300;
+} .ui.selection.dropdown {
+  line-height: 1.4285em !important;
+} .ui.form .field>.selection.dropdown>.dropdown.icon {
+  line-height: 2em;
+  margin-right: -5px;
+} .ui.selection.active.dropdown, .ui.selection.active.dropdown .menu {
+  border-radius: 10px;
+} .ui.selection.active.dropdown .menu .item {
+  font-size: 1em;
+} .ui.toggle.checkbox .box:before, .ui.toggle.checkbox label:before, .ui.toggle.checkbox .box:hover::before, .ui.toggle.checkbox input:focus~.box:before, .ui.toggle.checkbox input:focus~label:before, .ui.toggle.checkbox label:hover::before {
+  background-color: rgba(255,255,255,.60);
+} .ui.inverted.form .ui.checkbox label, .ui.inverted.form label, .ui.form input {
+  font-size: 1em !important;
+} .ui.toggle.checkbox input:checked .box, .ui.toggle.checkbox input:checked label, .ui.toggle.checkbox .box, .ui.toggle.checkbox label {
+  color: #fff !important;
+  margin-bottom: 9px;
+} .ui.form .checkbox {
+  margin-top: 9px;
+  margin-left: 5px;
+} .ui.form input {
+  -webkit-box-shadow:none;
+  position:relative;
+  -webkit-font-smoothing:antialiased;
+  -moz-osx-font-smoothing:grayscale;
+  font-weight:bold;
+  width:100%;
+  outline:none;
+} .form-item::-webkit-input-placeholder, .dropdown-label {
+    color: rgba(0,0,0,0.42) !important;
+} .form-item:-ms-input-placeholder, .dropdown-label {
+    color: rgba(0,0,0,0.42) !important;
+} .form-item::placeholder, .dropdown-label {
+    color: rgba(0,0,0,0.42) !important;
+} .ui.dropdown .menu .selected.item, .ui.dropdown.selected {
+  font-weight: 400 !important;
+} .ui.multiple.dropdown>.text {
+  line-height: 1.8em !important;
+} .ui.multiple.dropdown>.label {
+  border-radius: 60px !important;
+  margin-top: 5px !important;
+  margin-left: 5px !important;
+  background-color: #e14f3d !important;
+  color: #fff !important;
+  font-weight: 300 !important;
+  font-family: 'Rubik', Arial, sans-serif !important;
+} .form-span {
+  display: block;
+  color: #fff;
+  text-align: center;
+  width: 320px;
+  margin-top: 10px;
+  margin-bottom: 4px;
+} .social-button-wrapper {
+  width: 270px;
+  max-width: 95%;
+  margin: 0 auto
+} .social-button {
+  margin: 0 auto;
+  margin-top: 6px !important;
+  position: relative !important;
+  padding-top: 16px !important;
+} .social-button:before {
+  content: '';
+  height: 50px;
+  width: 50px;
+  background: white;
+  top: 2px;
+  left: 0px;
+} .ui.message {
+  font-family: 'Rubik', 'Roboto', Arial, sans-serif;
+  top: 15px;
+  position: absolute;
+  top: 30px;
+  width: 95%;
+  left: 2.5%;
+  padding: 30px;
+  z-index: 998;
+} .ui.message .close.icon {
+  font-size: 1.5em !important;
+}
+
+/*  Footer */
+footer {
+  display: block;
+  width: 100%;
+  bottom: 0;
+  left: 0;
+  font-size: 1em;
+  padding: 18px 30px;
+  border-bottom: 5px solid #1c1c1f;
+  font-size: 0.8em;
+}
+footer .copyright {
+  text-align: center;
+  margin-bottom: 7px;
+}
+footer .social-rollout {
+  font-weight: 400;
+  margin-left: auto;
+  text-align: center;
+  width: 100%;
+}
+footer .social-rollout a {
+  display: inline-block;
+  margin: 0 12px;
+  color: #e14f3d;
+}
+
+/* Now add mobile-first CSS */
+@media (min-width: 320px) {
+  .logo-text-wrapper {
+    max-width: 320px;
+  }
+  .form-wrapper {
+    max-width: 320px;
+  }
+} @media (min-width: 768px) {
+  div#wrapper{
+    padding: 75px 0;
+  }
+  div#wrapper.shiftedDown {
+    padding-top: 120px;
+  }
+  a.form-button.altButton {
+    top: 35px;
+    right: 30px;
+    width: 140px;
+  }
+  footer {
+    padding: 13px 30px;
+  }
+  footer .copyright {
+    text-align: left;
+    margin-bottom: 0;
+  }
+  footer .social-rollout {
+    text-align: right;
+  }
+} @media (min-width: 992px) {
+  .col-md-6 {
+    width: 50%;
+    float: left;
+  }
+}

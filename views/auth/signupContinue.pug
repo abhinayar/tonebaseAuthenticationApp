@@ -1,0 +1,113 @@
+extends ../layout
+block fonts
+  link(rel="stylesheet", href="http://fonts.googleapis.com/css?family=Roboto:100,300,700|Rubik:300,400,700")
+  link(rel="application/font-woff", href="http://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.2.10/themes/basic/assets/fonts/icons.woff")
+  link(rel="application/font-woff", href="http://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.2.10/themes/github/assets/fonts/octicons.woff")
+block externalStyles
+  link(rel="stylesheet", href="http://cdnjs.cloudflare.com/ajax/libs/normalize/7.0.0/normalize.min.css")
+  //framework styles
+  link(rel="stylesheet", href="http://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.2.10/semantic.min.css")
+block localStyles
+  link(rel="stylesheet", href="/stylesheets/authenticationStyle.css")
+block headScripts
+  script(src="//cdnjs.cloudflare.com/ajax/libs/modernizr/2.6.2/modernizr.min.js")
+  //auth0
+  script(src="//cdn.auth0.com/js/auth0/8.7/auth0.min.js")
+block bodyExternalScripts
+  script(src="//code.jquery.com/jquery-2.2.4.min.js")
+  script(src="//cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.2.10/semantic.min.js")
+block bodyLocalScripts
+  script(src="/javascript/registerSocial.js")
+  script(src="/javascript/main.js")
+block content
+  #wrapper.bg-cover.bg-no-repeat.bg-center
+    header#page-header
+      // Header Content
+    section#page-content
+      // Main Body Content
+      if (error)
+        div.ui.negative.message
+          i.close.icon
+          div.header.prim= error.title
+          p.prim= error.body
+      if (message)
+        div.ui.message
+          i.close.icon
+          div.header.prim= message.title
+          p.prim= message.body
+      .app-content
+        .logo-text-wrapper.white
+          .logo
+            if (user.meta_data.image_url)
+              img.logo-img(alt='tonebase', src= user.meta_data.image_url)
+            else
+              img.logo-img(alt='tonebase', src='/images/common/logo.png')
+          .logo-text.prim.bold
+            span tonebase
+          .logo-sub-text.prim.light
+            span
+              | Almost there 
+              span= user.meta_data.f_name
+              | !
+              br.hidden-sm.hidden-md.hidden-lg
+              | Most of these are optional but will help us make tonebase even better!
+        .form-wrapper
+          form#signup-social-form.ui.form
+            .form-item-wrapper.field
+              input.form-input.form-item.email.prim.normal(type='text', name='email', placeholder='Email Address', value= user.email, disabled)
+            .form-item-wrapper.field
+              input.form-input.form-item.password.prim.normal(type='password', name='password', placeholder='Create a Password')
+            .form-item-wrapper.field
+              input.form-input.form-item.fav_artist.prim.normal(type='text', name='fav_artist', placeholder='Favorite Artist')
+            .form-item-wrapper.field
+              input.form-input.form-item.fav_composer.prim.normal(type='text', name='fav_composer', placeholder='Favorite Composer')
+            .form-item-wrapper.field
+              .ui.multiple.selection.dropdown
+                input.form-item.form-dropdown.preffered_music_period.prim.normal(name='preffered_music_period', type='hidden', value='')
+                i.dropdown.icon
+                .default.text.dropdown-label.prim.normal Preffered Musical Style
+                .menu
+                  .item(data-value='Renaissance') Renaissance
+                  .item(data-value='Baroque') Baroque
+                  .item(data-value='Classical') Classical
+                  .item(data-value='19th Century') 19th Century
+                  .item(data-value='Contemporary') Contemporary
+                  .item(data-value='South American') South American
+                  .item(data-value='Flamenco') Flamenco
+                  .item(data-value='Romantic') Romantic
+            .form-item-wrapper.field
+              .ui.multiple.selection.dropdown
+                input.form-item.form-dropdown.user_professional_status.prim.normal(name='user_professional_status', type='hidden', value='')
+                i.dropdown.icon
+                .default.text.dropdown-label.prim.normal Level of Experience
+                .menu
+                  .item(data-value='Student') Student
+                  .item(data-value='Hobbyist') Hobbyist
+                  .item(data-value='Performer') Performer
+                  .item(data-value='Instructor') Instructor
+                  .item(data-value='Other') Other
+            .form-item-wrapper.field
+              .ui.toggle.checkbox.guitar-owned-checkbox-wrapper.inverted
+                input.form-checkbox.guitar_owned.prim.normal.white(type='checkbox', name='guitar_owned')
+                label Do you own a guitar?
+            .form-item-wrapper.field
+              input.form-input.form-item.guitar_owned_model.hidden.prim.normal(type='text', name='guitar_owned_model', placeholder='Guitar Owned Model')
+            .form-item-wrapper
+              a.form-item.form-button.ui.button.stepThreeButton.prim.normal(onclick='registerSocial()') Finish
+
+
+    footer#page-footer.dark-bg.white
+      .row
+        .col-xs-12.col-md-6
+          .copyright.prim.normal
+            | Copyright © 2017 tonebase, inc.
+        .col-xs-12.col-md-6
+          .social-rollout
+            a(href='https://facebook.com/tonebaseteam')
+              | Facebook
+            a(href='https://instagram.com/tonebaseteam')
+              | Instagram
+            a(href='https://twitter.com/tonebaseteam')
+              | Twitter
+            a(href='https://linkedin.com/company/tonebase')
+              | LinkedIn

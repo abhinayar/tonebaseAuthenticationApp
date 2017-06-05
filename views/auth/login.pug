@@ -1,0 +1,88 @@
+extends ../layout
+
+block fonts
+  link(rel="stylesheet", href="http://fonts.googleapis.com/css?family=Roboto:300,700|Rubik:300,400,700")
+  link(rel="application/font-woff", href="http://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.2.10/themes/basic/assets/fonts/icons.woff")
+  link(rel="application/font-woff", href="http://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.2.10/themes/github/assets/fonts/octicons.woff")
+block externalStyles
+  link(rel="stylesheet", href="http://cdnjs.cloudflare.com/ajax/libs/normalize/7.0.0/normalize.min.css")
+  //framework styles
+  link(rel="stylesheet", href="http://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.2.10/semantic.min.css")
+  //TODO: refactor and load only needed files: https://github.com/Semantic-Org/Semantic-UI/tree/master/dist/components
+block localStyles
+  //Local authenticationStyle/Signin CSS
+  link(rel="stylesheet", href="/stylesheets/authenticationStyle.css")
+block headScripts
+  //Auth0 authentication
+  script(src="//cdn.auth0.com/js/auth0/8.7/auth0.min.js")
+  script(src="//cdnjs.cloudflare.com/ajax/libs/modernizr/2.6.2/modernizr.min.js")
+  //auth0
+  script(src="https://cdn.auth0.com/js/auth0/8.7/auth0.min.js")
+block bodyExternalScripts
+  script(src="//code.jquery.com/jquery-2.2.4.min.js")
+  script(src="//cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.2.10/semantic.min.js")
+  script( src="//cdnjs.cloudflare.com/ajax/libs/keyboardjs/2.3.3/keyboard.min.js", defer)
+block bodyLocalScripts
+  //could concatenate localStorageDB into authenticationScript
+  script(src="/javascript/login.js")
+  script(src="/javascript/main.js")
+block content
+  #wrapper.bg-cover.bg-no-repeat.bg-center
+    header#page-header
+      // Header Content
+    section#page-content
+      // Main Body Content
+      if (error)
+        div.ui.negative.message
+          i.close.icon
+          div.header.prim= error.title
+          p.prim= error.body
+      if (message)
+        div.ui.message
+          i.close.icon
+          div.header.prim= message.title
+          p.prim= message.body
+      .app-content
+        a.ui.button.form-button.signupButton.altButton.prim.normal.shell(href="/auth/signup") Sign Up
+        .logo-text-wrapper.white
+          .logo
+            img.logo-img(alt='tonebase', src='/images/common/logo.png')
+          .logo-text.prim.bold
+            span tonebase
+          .logo-sub-text.prim.light
+            span
+              | The world's greatest
+              br.hidden-sm.hidden-md.hidden-lg
+              | guitarists at your fingertips
+        .form-wrapper
+          form#login-form.ui.form
+            .form-item-wrapper.field
+              input.form-input.form-item.email.prim.normal(type='text', name='email', placeholder='Email Address')
+            .form-item-wrapper.field
+              input.form-input.form-item.password.prim.normal(type='password', name='password', placeholder='Create Password')
+            .form-item-wrapper
+              a.form-item.form-button.ui.button.stepOneButton.prim.normal(onclick='login()') Log In
+            span.form-span OR
+            .form-item-wrapper.social-button-wrapper
+              a.ui.button.form-item.social-button.prim.normal.facebook(href="/auth/login/facebook")
+                i.facebook.icon
+                |Sign In with Facebook
+            .form-item.wrapper.social-button-wrapper
+              a.ui.button.form-item.social-button.prim.normal.google.plus(href="/auth/login/google")
+                i.google.icon
+                |Sign In with Google
+    footer#page-footer.dark-bg.white
+      .row
+        .col-xs-12.col-md-6
+          .copyright.prim.normal
+            | Copyright © 2017 tonebase, inc.
+        .col-xs-12.col-md-6
+          .social-rollout
+            a(href='https://facebook.com/tonebaseteam')
+              | Facebook
+            a(href='https://instagram.com/tonebaseteam')
+              | Instagram
+            a(href='https://twitter.com/tonebaseteam')
+              | Twitter
+            a(href='https://linkedin.com/company/tonebase')
+              | LinkedIn

@@ -1,0 +1,10 @@
+doctype
+html
+  head
+    title= pageTitle
+  body
+    //
+      span.f_name= user._json.given_name
+      span.l_name= user._json.family_name
+      span.email= user._json.email
+    a(href='/auth/logout') Logout
